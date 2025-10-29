@@ -69,7 +69,7 @@ const Preview = ({ skilldata, setskilldata }) => {
         placeholder="Remark"
       />
 
-      <button onClick={handleAddSkill} disabled={loading}>
+      <button onClick={handleAddSkill}  disabled={loading}>
         {loading ? "Adding..." : "Add Skill"}
       </button>
     </div>
