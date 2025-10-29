@@ -8,3 +8,7 @@ export const addSkillAPI = async (reqBody) => {
   return await commonAPI("POST", url, reqBody);
 }
 
+export const getSkillAPI = async () => {
+  const url = `${serverURL}/Skill`;
+  return await commonAPI("GET", url);
+};
