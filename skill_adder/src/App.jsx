@@ -6,7 +6,7 @@ import Footer from './components/Footer.jsx';
 import Form from './components/Form.jsx';
 import Preview from './components/Preview.jsx';
 import Home from './pages/Home.jsx';
-
+import Progress from './pages/Progress.jsx';
 function App() {
   return (
     <>
@@ -16,6 +16,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/form' element={<Form />} />
         <Route path='/preview' element={<Preview />} />
+        <Route path='/progress' element={<Progress />} />
       </Routes>
     <Footer />
     </>

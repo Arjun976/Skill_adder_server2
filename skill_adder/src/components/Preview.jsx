@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { addSkillAPI } from "../services/allAPI"; // adjust path as needed
+import { addSkillAPI } from "../services/allAPI";
 
-const Preview = ({ skilldata, setskilldata }) => {
+const Preview = ({ skilldata, setskilldata, onSkillAdded }) => {
   const [loading, setLoading] = useState(false);
 
   const handleAddSkill = async () => {
@@ -12,9 +12,13 @@ const Preview = ({ skilldata, setskilldata }) => {
 
     try {
       setLoading(true);
-      const result = await addSkillAPI(skilldata);
+      await addSkillAPI(skilldata);
       alert("Skill added successfully!");
-      console.log(result.data);
+
+      // ✅ Notify parent to refresh skills list
+      if (onSkillAdded) onSkillAdded();
+
+      // ✅ Reset fields
       setskilldata({
         skillname: "",
         Efforttime: "",
@@ -45,7 +49,7 @@ const Preview = ({ skilldata, setskilldata }) => {
         name="Efforttime"
         value={skilldata.Efforttime}
         onChange={(e) => setskilldata({ ...skilldata, Efforttime: e.target.value })}
-        placeholder="Effort Time"
+        placeholder="Effort Time (hours)"
       />
       <input
         type="text"
@@ -69,7 +73,7 @@ const Preview = ({ skilldata, setskilldata }) => {
         placeholder="Remark"
       />
 
-      <button onClick={handleAddSkill}  disabled={loading}>
+      <button onClick={handleAddSkill} disabled={loading}>
         {loading ? "Adding..." : "Add Skill"}
       </button>
     </div>
