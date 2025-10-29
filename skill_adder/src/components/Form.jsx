@@ -30,6 +30,7 @@ function Form() {
   useEffect(() => {
     fetchSkills();
   }, []);
+   <Progress skills={skills} />
 
   return (
     <div>
@@ -43,7 +44,7 @@ function Form() {
       />
 
       {/* Progress tracker below */}
-      <Progress skills={skills} />
+     
     </div>
   );
 }
