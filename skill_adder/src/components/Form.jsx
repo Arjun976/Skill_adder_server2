@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Preview from "./Preview";
-import Progress from "./Progress";
+import Progress from "../pages/Progress.jsx";
 import { getSkillAPI } from "../services/allAPI";
 
 function Form() {
