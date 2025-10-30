@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Preview from "./Preview";
-import Progress from "../pages/Progress.jsx";
+import Card from "./Card";
+import Progress from "../pages/Progress";
 import { getSkillAPI } from "../services/allAPI";
-import Card from "./Card.jsx";
+
 function Form() {
   const [Addid, setAddid] = useState("");
   const [skilldata, setskilldata] = useState({
@@ -13,40 +14,67 @@ function Form() {
     remark: "",
   });
 
-  // ✅ State to store all skills for progress display
   const [skills, setSkills] = useState([]);
 
-  // ✅ Fetch all skills from API
+  // ✅ Fetch all skills
   const fetchSkills = async () => {
     try {
       const response = await getSkillAPI();
-      setSkills(response.Skill || []);
+      setSkills(response.data || []);
     } catch (error) {
       console.error("Error fetching skills:", error);
     }
   };
 
-  // ✅ Run once when the component mounts
+  // ✅ Fetch once on mount
   useEffect(() => {
     fetchSkills();
   }, []);
-   <Progress skills={skills} />
+    <div className="max-w-4xl mx-auto">
+        <Progress  />
+      </div>
+      
+
+
 
   return (
-    <div>
-      {/* Form section to add skills */}
-      <Preview
-        skilldata={skilldata}
-        setskilldata={setskilldata}
-        Addid={Addid}
-        setAddid={setAddid}
-        onSkillAdded={fetchSkills}  // ✅ Callback to refresh progress
-      />
+    <div className="min-h-screen bg-gradient-to-br from-black via-[#1a0033] to-[#3b0066] text-white p-8">
+      {/* Title */}
+      <h1 className="text-4xl font-bold text-center mb-10 text-purple-400 drop-shadow-lg">
+        Skill Progress Manager
+      </h1>
 
-      {/* Progress tracker below */}
+      {/* ✅ Add Skill Form */}
+      <div className="flex justify-center mb-16">
+        <Preview
+          skilldata={skilldata}
+          setskilldata={setskilldata}
+          Addid={Addid}
+          setAddid={setAddid}
+          onSkillAdded={fetchSkills}
+        />
+      </div>
 
-      <Card skillData={skilldata} />
-     
+      {/* ✅ Show Progress Tracker */}
+    
+      {/* ✅ Skill Cards Section */}
+      <div className="mt-16">
+        <h2 className="text-3xl font-semibold mb-6 text-center text-purple-300">
+          Recently Added Skills
+        </h2>
+
+        {skills.length === 0 ? (
+          <p className="text-center text-gray-400 text-lg">
+            No skills added yet.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {skills.slice(-3).map((skill, index) => (
+              <Card key={index} skillData={skill} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

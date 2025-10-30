@@ -12,3 +12,7 @@ export const getSkillAPI = async () => {
   const url = `${serverURL}/Skill`;
   return await commonAPI("GET", url);
 };
+export const deleteSkillAPI = async (skillId) => {
+  const url = `${serverURL}/Skill/${skillId}`;
+  return await commonAPI("DELETE", url);
+}

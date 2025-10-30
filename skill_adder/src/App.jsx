@@ -7,6 +7,7 @@ import Form from './components/Form.jsx';
 import Preview from './components/Preview.jsx';
 import Home from './pages/Home.jsx';
 import Progress from './pages/Progress.jsx';
+import Search from './pages/Search.jsx';
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
         <Route path='/form' element={<Form />} />
         <Route path='/preview' element={<Preview />} />
         <Route path='/progress' element={<Progress />} />
+        <Route path='/search' element={<Search />} />
       </Routes>
     <Footer />
     </>
