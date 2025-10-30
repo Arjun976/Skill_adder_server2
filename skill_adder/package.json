@@ -14,11 +14,13 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
+    "@tailwindcss/vite": "^4.1.16",
     "axios": "^1.12.2",
     "react": "^19.2.0",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4",
-    "router-dom": "^3.0.3"
+    "router-dom": "^3.0.3",
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

@@ -12,13 +12,19 @@ const Preview = ({ skilldata, setskilldata, onSkillAdded }) => {
 
     try {
       setLoading(true);
-      await addSkillAPI(skilldata);
-      alert("Skill added successfully!");
 
-      // ✅ Notify parent to refresh skills list
+      const currentTime = new Date().toLocaleString();
+
+      const skillWithTime = {
+        ...skilldata,
+        addedtime: currentTime,
+      };
+
+      await addSkillAPI(skillWithTime);
+      alert("✅ Skill added successfully!");
+
       if (onSkillAdded) onSkillAdded();
 
-      // ✅ Reset fields
       setskilldata({
         skillname: "",
         Efforttime: "",
@@ -28,7 +34,7 @@ const Preview = ({ skilldata, setskilldata, onSkillAdded }) => {
       });
     } catch (error) {
       console.error("Error adding skill:", error);
-      alert("Failed to add skill. Please try again.");
+      alert("❌ Failed to add skill. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -36,46 +42,65 @@ const Preview = ({ skilldata, setskilldata, onSkillAdded }) => {
 
   return (
     <div>
-      <h3>Add Skill</h3>
-      <input
-        type="text"
-        name="skillname"
-        value={skilldata.skillname}
-        onChange={(e) => setskilldata({ ...skilldata, skillname: e.target.value })}
-        placeholder="Skill Name"
-      />
-      <input
-        type="text"
-        name="Efforttime"
-        value={skilldata.Efforttime}
-        onChange={(e) => setskilldata({ ...skilldata, Efforttime: e.target.value })}
-        placeholder="Effort Time (hours)"
-      />
-      <input
-        type="text"
-        name="Source"
-        value={skilldata.Source}
-        onChange={(e) => setskilldata({ ...skilldata, Source: e.target.value })}
-        placeholder="Source"
-      />
-      <input
-        type="text"
-        name="Sourcelink"
-        value={skilldata.Sourcelink}
-        onChange={(e) => setskilldata({ ...skilldata, Sourcelink: e.target.value })}
-        placeholder="Source Link"
-      />
-      <input
-        type="text"
-        name="remark"
-        value={skilldata.remark}
-        onChange={(e) => setskilldata({ ...skilldata, remark: e.target.value })}
-        placeholder="Remark"
-      />
+      <div>
+        <h2>Add New Skill</h2>
 
-      <button onClick={handleAddSkill} disabled={loading}>
-        {loading ? "Adding..." : "Add Skill"}
-      </button>
+        <div>
+          <input
+            type="text"
+            name="skillname"
+            value={skilldata.skillname}
+            onChange={(e) =>
+              setskilldata({ ...skilldata, skillname: e.target.value })
+            }
+            placeholder="Skill Name"
+          />
+
+          <input
+            type="number"
+            name="Efforttime"
+            value={skilldata.Efforttime}
+            onChange={(e) =>
+              setskilldata({ ...skilldata, Efforttime: e.target.value })
+            }
+            placeholder="Effort Time (hours)"
+          />
+
+          <input
+            type="text"
+            name="Source"
+            value={skilldata.Source}
+            onChange={(e) =>
+              setskilldata({ ...skilldata, Source: e.target.value })
+            }
+            placeholder="Source (e.g. YouTube, Udemy)"
+          />
+
+          <input
+            type="text"
+            name="Sourcelink"
+            value={skilldata.Sourcelink}
+            onChange={(e) =>
+              setskilldata({ ...skilldata, Sourcelink: e.target.value })
+            }
+            placeholder="Source Link"
+          />
+
+          <input
+            type="text"
+            name="remark"
+            value={skilldata.remark}
+            onChange={(e) =>
+              setskilldata({ ...skilldata, remark: e.target.value })
+            }
+            placeholder="Remark"
+          />
+        </div>
+
+        <button onClick={handleAddSkill} disabled={loading}>
+          {loading ? "Adding..." : "Add Skill"}
+        </button>
+      </div>
     </div>
   );
 };
