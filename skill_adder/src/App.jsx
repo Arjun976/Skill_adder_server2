@@ -16,7 +16,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/form' element={<Form />} />
-        <Route path='/preview' element={<Preview />} />
         <Route path='/progress' element={<Progress />} />
         <Route path='/search' element={<Search />} />
       </Routes>
