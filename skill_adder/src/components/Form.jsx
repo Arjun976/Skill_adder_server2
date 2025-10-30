@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Preview from "./Preview";
 import Progress from "../pages/Progress.jsx";
 import { getSkillAPI } from "../services/allAPI";
-
+import Card from "./Card.jsx";
 function Form() {
   const [Addid, setAddid] = useState("");
   const [skilldata, setskilldata] = useState({
@@ -44,6 +44,8 @@ function Form() {
       />
 
       {/* Progress tracker below */}
+
+      <Card skillData={skilldata} />
      
     </div>
   );

@@ -12,6 +12,7 @@ const Card = ({ skillData }) => {
         <h6>Effort Time :   <span className="text-2xl text-blue-500">{skillData.Efforttime}</span></h6>
         <p>Source Link:     <span className="text-2xl text-blue-500"><Link to={skillData.Sourcelink}>{skillData.Sourcelink}</Link></span></p>
         <p>     Remark:          <span className="text-2xl text-blue-500"> {skillData.remark}</span></p>
+        <p>Added Time <span className="text-2xl text-blue-500">{skillData.addedtime}</span></p>
       </div>
       <button className=" mt-4 text-white bg-linear-to-r from-blue-400 via-blue-500 to-blue-600 hover:bg-linear-to-br focus:ring-4 focus:outline-none focus:none dark:focus:none  rounded-lg font-bold px-5 py-2.5 text-center me-2 mb-2">Delete</button>
     </div>
