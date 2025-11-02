@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getSkillAPI, deleteSkillAPI } from "../services/allAPI";
 import { FaTrash } from "react-icons/fa";
-
+import QR from "../components/QR";
 function Search() {
   const [skills, setSkills] = useState([]);
   const [filteredSkills, setFilteredSkills] = useState([]);
@@ -126,6 +126,7 @@ function Search() {
                 >
                   <FaTrash size={14} />
                 </button>
+                <QR link={skill.Sourcelink} />
               </div>
             );
           })}

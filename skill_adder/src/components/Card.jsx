@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import QR from "./QR"
 
 const Card = ({ skillData }) => {
   return (
@@ -41,6 +42,7 @@ const Card = ({ skillData }) => {
       <button className="mt-6 w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-semibold py-2.5 rounded-lg shadow-md shadow-purple-700/40 transition-all duration-300">
         Delete
       </button>
+      <QR link={skillData.Sourcelink} />
     </div>
   );
 };

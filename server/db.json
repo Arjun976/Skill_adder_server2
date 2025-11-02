@@ -1,24 +1,6 @@
 {
   "Skill": [
     {
-      "id": "9d28",
-      "skillname": "node",
-      "Efforttime": "012",
-      "Source": "",
-      "Sourcelink": "",
-      "remark": "",
-      "addedtime": "29/10/2025, 23:08:05"
-    },
-    {
-      "id": "4cf4",
-      "skillname": "react",
-      "Efforttime": "1",
-      "Source": "",
-      "Sourcelink": "",
-      "remark": "",
-      "addedtime": "30/10/2025, 19:59:09"
-    },
-    {
       "id": "fa8d",
       "skillname": "react",
       "Efforttime": "1",
@@ -26,6 +8,15 @@
       "Sourcelink": "1",
       "remark": "1",
       "addedtime": "30/10/2025, 20:03:43"
+    },
+    {
+      "skillname": "Anime",
+      "Efforttime": "1",
+      "Source": "Anime",
+      "Sourcelink": "https://youtu.be/7weALvha5gQ?si=qKHnKzE34uYvQrlu",
+      "remark": "fun time",
+      "addedtime": "02/11/2025, 13:35:56",
+      "id": "K-1Rtl7"
     }
   ]
 }

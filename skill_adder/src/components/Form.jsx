@@ -26,7 +26,7 @@ function Form() {
     }
   };
 
-  // ✅ Fetch once on mount
+ 
   useEffect(() => {
     fetchSkills();
   }, []);
@@ -55,7 +55,7 @@ function Form() {
         />
       </div>
 
-      {/* ✅ Show Progress Tracker */}
+      
     
       {/* ✅ Skill Cards Section */}
       <div className="mt-16">
